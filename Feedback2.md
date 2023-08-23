@@ -37,6 +37,6 @@ Tu as un peu mal à la tête avec tout ça et ne sais pas trop par où attaquer 
 
 -   **Ajouter le bouton "Ajouter" à ta View teachers_list** qui redirige vers /teachers/add en GET. Un simple href peut suffire, par défaut les requêtes HTTP sont en GET. Cela correspond au 1) du schéma précédent que tu avais déjà fait mais sur le bouton d'édition donc ne mélangeons pas tout ! A noter que tu as déjà les étapes 2), 3) et 4) d'implémentées, c'est déjà pas mal !
 -   **Ajouter au $router la route correspondant à ta méthode POST** (soumission du formulaire). Ca correspond au numéro 5) du schéma.
--   **Implémenter la function addPost() **de ton TeachersController. Etape 6) du schéma.
+-   **Implémenter la function addPost()** de ton TeachersController. Etape 6) du schéma.
 -   **Implémenter la function insert() de ton Model** Teacher.php. Etape 7) du schéma.
 
