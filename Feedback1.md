@@ -1,9 +1,3 @@
-
-title: Feedback1
-created at: Tue Aug 22 2023 15:09:03 GMT+0000 (Coordinated Universal Time)
-updated at: Tue Aug 22 2023 17:06:26 GMT+0000 (Coordinated Universal Time)
----
-
 # Feedback1
 
 ## 🔥Tout d'abord, Bien joué !🔥
@@ -17,21 +11,22 @@ Ce qu'il te manque c'est le match entre:
 
 Ce match, c'est ce qui va permettre au Dispatcher d'appeler la bonne méthode du bon Controller pour exécuter le code que tu souhaites ! Dans le cas du Teacher, il s'agit de la méthode _teacherUpdatePost_ de ton TeacherController.php comme indiqué dans ton index.php.
 
-❗**Attention, un \*\***_$router->generate('nom_de_route')_\***\* ne suffit pas à générer la route complète **si celle-ci attend un paramètre dynamique comme, par exemple, l'ID du Teacher que tu veux éditer. <u>il faut le lui donner !</u>
+❗ **Attention, un _$router->generate('nom_de_route')_ ne suffit pas à générer la route complète** si celle-ci attend un paramètre dynamique comme, par exemple, l'ID du Teacher que tu veux éditer. <u>il faut le lui donner !</u>
 
-## ✔** C'est dommage car tu avais le truc !**
+## ✔ **C'est dommage car tu avais le truc !**
 
-Tu peux faire comme dans ta View \_teacher_list.tpl.php (l.22) \_où tu génères bien la bonne route avec le paramètre **teacherId** justement !
+Tu peux faire comme dans ta View _teacher_list.tpl.php (l.22)_ où tu génères bien la bonne route avec le paramètre **teacherId** justement !
 
 N'hésites pas à:
 
--   \***\*📖** Reparcourir les commentaires de l'index.php\*\* de la correction afin de bien comprendre comment cela fonctionne avec $router, $match et le Dispatcher
+-   📖 **Parcourir les commentaires de l'index.php** de la correction afin de bien comprendre comment cela fonctionne avec $router, $match et le Dispatcher
 -   🕵️‍♂️ **Si tu n'avais pas trouvé d'où venait ton problème**, je t'ai mis un guide de comment tu aurais pu t'y prendre pour le repérer toi-même juste en dessous
 -   ☎ **Si ce n'est toujours pas clair**, on peut se faire un call et revoir ça ensemble !
 
 * * *
+# Le Guide
 
-## \***\*🕵️‍♂️**1) Repérer le problème \*\*
+## 🕵️‍♂️**1) Repérer le problème**
 
 **1) Lorsqu'on soumet le formulaire update Teacher, on a une erreur 404.** Cela veut dire qu'aucune route correspondante n'a été trouvée et l'erreur suivante le confirme puisque le _CoreController.php_ ne récupère pas de $match (ou juste un bool false):
 
@@ -76,21 +71,18 @@ $router->map(
 <?= $router->generate('teacher_update_post') ?> // output: /teacher/
 ```
 
-### \***\*🐞** Le problème vient de là ! Il manque le paramètre id dans l'url envoyée par le formulaire update.\*\*
+### **🐞 Le problème vient de là ! Il manque le paramètre id dans l'url envoyée par le formulaire update.**
 
-* * *
 
-* * *
+## ✔ **2) Corriger le problème**
 
-## \***\*✔** 2) Corriger le problème\*\*
-
-**Ajouter le paramètre teacherid **pour matcher '**teacher_update_get'**:
+**Ajouter le paramètre teacherid** pour matcher '**teacher_update_get'**:
 
 ```php
 <?= $router->generate('teacher_update_get', [ "teacherid" => $teacher->getId() ]) ?>
 ```
 
-\***\*🔎** A noter que tu n'es pas obligé de remplir l'attribut action de tes <form> \*\*surtout si tes routes sont bien configurées et nommées. Par défaut, l'action s'adapte à l'url en cours. Les 2 codes suivant fonctionnent:
+**🔎 A noter que tu n'es pas obligé de remplir l'attribut action de tes <form>** surtout si tes routes sont bien configurées et nommées. Par défaut, l'action s'adapte à l'url en cours. Les 2 codes suivant fonctionnent:
 
 ```php
 <form action="<?=$router->generate('teacher_update_post', [ "teacherid" => $teacher->getId() ])?>" method="POST">
