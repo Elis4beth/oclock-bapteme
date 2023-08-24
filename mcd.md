@@ -17,7 +17,7 @@ Pour cette exercice, on a un contexte avec une app ecommerce simplifiée. On veu
 
 On aurait donc plutôt **1,1 CONTAIN 0,N**:
 
-![image.png](/images/mcd/image.png)
+![image.png](/images/mcd/image.PNG)
 
 Dans ce cas là, notre entité ORDER pourrait ne pas contenir la propriété total_amount puisqu'on a déjà l'amount dans PRODUCT.
 
