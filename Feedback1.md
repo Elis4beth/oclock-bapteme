@@ -6,7 +6,7 @@ C'est globalement du très bon travail que tu as fait sur ce Challenge. La plupa
 
 Ce qu'il te manque c'est le match entre:
 
--   **Ton URL courante** au moment de la soumission des formulaires d'update. Donc au niveau de l'attribut action de tes <form> (_teacher_update.tpl.php_ ou _student_update.tpl.php_)
+-   **Ton URL courante** au moment de la soumission des formulaires d'update. Donc au niveau de l'attribut action de tes form (_teacher_update.tpl.php_ ou _student_update.tpl.php_)
 -   **Et tes routes existantes dans index.php:** /student/[i:studentid] ou /teacher/[i:studentid]
 
 Ce match, c'est ce qui va permettre au Dispatcher d'appeler la bonne méthode du bon Controller pour exécuter le code que tu souhaites ! Dans le cas du Teacher, il s'agit de la méthode _teacherUpdatePost_ de ton TeacherController.php comme indiqué dans ton index.php.
@@ -47,7 +47,7 @@ Output:
 | --------------------------------------- | ---------------------------------------------------------------------------- |
 | ![image.png](images/media_Feedback1/image.png) | ![image.png](images/media_Feedback1/f0ead550-d7fb-47c9-b718-dac9ffecf610_image.png) |
 
-**2) Si on regarde l'url affichée dans la barre d'adresse à ce moment là,** on voit:** /teacher/**
+**2) Si on regarde l'url affichée dans la barre d'adresse à ce moment là,** on voit: **/teacher/**
 
 En allant dans _index.php_, il n'y aucune route /teacher/ seule, il est donc normal d'avoir cette erreur.
 
@@ -65,7 +65,7 @@ $router->map(
 );
 ```
 
-**4) Si on regarde de plus près l'URL générée pour l'attribut action du <form>** dans _teacher_update.tpl.php,_ cela génère bien que** /teacher/ **seul:
+**4) Si on regarde de plus près l'URL générée pour l'attribut action du form** dans _teacher_update.tpl.php,_ cela génère bien que **/teacher/** seul:
 
 ```php
 <?= $router->generate('teacher_update_post') ?> // output: /teacher/
@@ -82,7 +82,7 @@ $router->map(
 <?= $router->generate('teacher_update_get', [ "teacherid" => $teacher->getId() ]) ?>
 ```
 
-**🔎 A noter que tu n'es pas obligé de remplir l'attribut action de tes <form>** surtout si tes routes sont bien configurées et nommées. Par défaut, l'action s'adapte à l'url en cours. Les 2 codes suivant fonctionnent:
+**🔎 A noter que tu n'es pas obligé de remplir l'attribut action de tes form** surtout si tes routes sont bien configurées et nommées. Par défaut, l'action s'adapte à l'url en cours. Les 2 codes suivant fonctionnent:
 
 ```php
 <form action="<?=$router->generate('teacher_update_post', [ "teacherid" => $teacher->getId() ])?>" method="POST">
