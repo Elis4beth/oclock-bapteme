@@ -31,7 +31,7 @@ On veut rendre ton formulaire d'ajout d'étudiant plus dynamique dans ton Challe
       
 ![image.png](/images/media_fetch/9556e64d-109c-46ef-8a7b-fe9bc492e2d7_image.png)
 
-6.  **Le plus important: Notre fetch(),** pour cette démonstration rapide, on le met directement dans le <head> de notre page donc _header.tpl.php_:
+6.  **Le plus important: Notre fetch(),** pour cette démonstration rapide, on le met directement dans le head de notre page donc _header.tpl.php_:
    
 ![image.png](/images/media_fetch/9a31f4b9-1939-468e-8b1f-e3636dd73d8d_image.png)
 
